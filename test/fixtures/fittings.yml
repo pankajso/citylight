@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  sub_type: 1
+  wattage: 1
+
+two:
+  type: 
+  sub_type: 1
+  wattage: 1

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  infrastructure_id: 
+  fitting_id: 
+  quantity: 1
+  running_time: 1.5
+
+two:
+  infrastructure_id: 
+  fitting_id: 
+  quantity: 1
+  running_time: 1.5
