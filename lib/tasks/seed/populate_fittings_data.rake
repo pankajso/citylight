@@ -5,58 +5,58 @@ namespace :seed do
      fitting_type_data =
            [
                {
-                   type: '2 X 2',
-                   sub_type: 0,
+                   typo: '2 X 2',
+                   sub_typo: 0,
                    wattage: 90
                },
                {
-                   type: 'Tube Light',
-                   sub_type: 0,
+                   typo: 'Tube Light',
+                   sub_typo: 0,
                    wattage: 40
                },
                {
-                   type: 'Down Light 5w',
-                   sub_type: 0,
+                   typo: 'Down Light 5w',
+                   sub_typo: 0,
                    wattage: 5
                },
                {
-                   type: 'Down Light 10w',
-                   sub_type: 0,
+                   typo: 'Down Light 10w',
+                   sub_typo: 0,
                    wattage: 10
                },
                {
-                   type: 'Down Light 15w',
-                   sub_type: 0,
+                   typo: 'Down Light 15w',
+                   sub_typo: 0,
                    wattage: 15
                },
                {
-                   type: 'Down Light 20w',
-                   sub_type: 0,
+                   typo: 'Down Light 20w',
+                   sub_typo: 0,
                    wattage: 20
                },
                {
-                   type: 'Down Light 25w',
-                   sub_type: 0,
+                   typo: 'Down Light 25w',
+                   sub_typo: 0,
                    wattage: 25
                },
                {
-                   type: 'Down Light 30w',
-                   sub_type: 0,
+                   typo: 'Down Light 30w',
+                   sub_typo: 0,
                    wattage: 30
                },
                {
-                   type: 'Down Light 35w',
-                   sub_type: 0,
+                   typo: 'Down Light 35w',
+                   sub_typo: 0,
                    wattage: 35
                },
                {
-                   type: 'Pannel Light 1(16w)',
-                   sub_type: 0,
+                   typo: 'Pannel Light 1(16w)',
+                   sub_typo: 0,
                    wattage: 16
                },
                {
-                   type: 'Pannel Light 2 (32w)',
-                   sub_type: 0,
+                   typo: 'Pannel Light 2 (32w)',
+                   sub_typo: 0,
                    wattage: 32
                }
              ]
@@ -66,12 +66,12 @@ namespace :seed do
   def populate_fittings_data(fitting_type_data)
     fitting_type_data.each do |record|
       puts "Processing Fitting record:
-                          type:     #{record[:type]}
-                          sub_type: #{record[:sub_type]}
+                          typo:     #{record[:typo]}
+                          sub_typo: #{record[:sub_typo]}
                           wattage:  #{record[:wattage]}"
 
-      Fitting.where(      type: record[:type],
-                          sub_type: record[:sub_type],
+      Fitting.where(      typo: record[:typo],
+                          sub_typo: record[:sub_typo],
                           wattage: record[:wattage]).first_or_create
     end
   end
