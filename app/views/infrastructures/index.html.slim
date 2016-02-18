@@ -2,13 +2,14 @@ ul.tabs
   li
     = form_tag('/infrastructures', method: :post, remote: true) do
       = text_field_tag(:area, nil, placeholder: 'New Area')
+      / - binding.pry
   - @infras.each_with_index do |infra, index|
     li[class="#{'active' if index == 0}#{' last' if index == @infras.size-1}"]
       = render infra 
 
-/ .project-time= format_logged(@project.logged)
+  .infra-fitting = format_fittings(@infra.fittings)
 
-/ = link_to 'delete project', projects_path(id: @project.id, format: 'js'), { class: 'project-delete', remote: true, method: :delete }
+  = link_to 'delete infra', infrastructures_path(id: @infra.id, format: 'js'), { class: 'infra-delete', remote: true, method: :delete }
 
 / .task-create
 /   = form_tag('/tasks', method: :post, remote: true) do
