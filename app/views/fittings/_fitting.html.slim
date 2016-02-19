@@ -1,0 +1,16 @@
+div[class="fitting fitting-#{fitting.id}"]
+
+  .time "place holder"
+
+  - if fitting.present?
+    = link_to 'delete', fitting, { class: 'fitting-action action-delete', remote: true, method: :delete }
+
+  .fitting-title
+    - if fitting.present?
+      span.icon &#9874;
+    
+    span #{fitting.typo}
+    span #{fitting.wattage}
+    
+  div[class="fitting-logs logs-#{fitting.id}"]
+    / = render fitting.installations

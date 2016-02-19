@@ -13,7 +13,7 @@ ul.tabs
 
 .fitting-create
   = form_tag('/fittings', method: :post, remote: true) do
-    = text_field_tag(:name, nil, placeholder: 'New fitting')
+    = text_field_tag(:name, nil, placeholder: 'Add fitting')
     = hidden_field_tag(:infrastructure_id, "#{@infras.empty? ? 0 : @infras.first.id}")
 
 .fittingpane
