@@ -1,0 +1,76 @@
+// Place all the styles related to the installations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.installationpane, .installation-create
+  margin-left: 15%
+
+.installation
+  border: 2px solid $grey-dark
+  border-bottom: 2px solid $grey-dark
+  padding: 8px
+  margin: 5px
+
+.installation:hover
+  border-bottom: 2px solid $grey-light
+
+.installation-work
+  border-bottom-color: $work
+  &:hover
+    border-bottom-color: $work
+
+.installation-done, .installation-delete
+  color: $grey-medium
+  border-bottom-color: $done
+  &:hover
+    border-bottom-color: $done
+
+.time, .installation-action
+  float: right
+  font-weight: bold
+
+.time, .action-start
+  border-left: 1px solid $grey-light
+  margin-left: 8px
+  padding-left: 8px
+
+.installation-action
+  text-decoration: none
+
+.action-start
+  color: $start
+
+.action-stop
+  color: $stop
+
+.action-done, a.action-delete
+  color: $grey-medium
+  font-weight: normal
+
+.installation-title
+  font-weight: bold
+  color: $grey-dark
+
+.installation-title
+  .icon
+    color: $grey-light
+    padding-right: 10px
+
+  .show-logs
+    color: $grey-light
+    padding-right: 50px
+
+  &:hover
+    color: $grey-dark
+
+.installation-logs
+  border-top: 2px solid #eee
+  display: none
+  margin-top: 5px
+
+.installation-create form input
+  border: 1px solid $grey-dark
+  margin: 5px
+  padding: 8px
+  width: 50%
+  box-sizing: border-box
+  font-weight: bold

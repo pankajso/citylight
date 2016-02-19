@@ -17,4 +17,4 @@ ul.tabs
     = hidden_field_tag(:infrastructure_id, "#{@infras.empty? ? 0 : @infras.first.id}")
 
 .fittingpane
-  = render @infra.fittings
+  = render @infra.installations

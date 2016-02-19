@@ -1,0 +1,25 @@
+div[class="installation installation-#{installation.id}"]
+
+  .time "place holder"
+
+  - if installation.present?
+    = link_to 'delete', installation, { class: 'installation-action action-delete', remote: true, method: :delete }
+
+  .installation-title
+    table
+      tr
+      - if installation.present?
+        td.icon &#9417;
+        td.typo = installation.fitting.typo
+        td.wattage = installation.fitting.wattage
+        td.quantity = installation.quantity
+        td.running_time = installation.running_time
+    
+    / span #{installation.fitting.typo}
+    / span #{installation.fitting.wattage}
+    / span #{installation.quantity}
+    / span #{installation.running_time}
+    
+    
+  div[class="installation-logs logs-#{installation.id}"]
+    / = render installation.installations
