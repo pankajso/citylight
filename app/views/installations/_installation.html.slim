@@ -1,9 +1,9 @@
 div[class="installation installation-#{installation.id}"]
 
-  .time "place holder"
-
   - if installation.present?
-    = link_to 'delete', installation, { class: 'installation-action action-delete', remote: true, method: :delete }
+    = link_to 'X', installation, { class: 'installation-action action-delete', remote: true, method: :delete }
+    = ""
+    = link_to 'edit', installation, { class: 'installation-action action-edit', remote: true, method: :edit }
 
   .installation-title
     table
@@ -14,12 +14,9 @@ div[class="installation installation-#{installation.id}"]
         td.wattage = installation.fitting.wattage
         td.quantity = installation.quantity
         td.running_time = installation.running_time
-    
-    / span #{installation.fitting.typo}
-    / span #{installation.fitting.wattage}
-    / span #{installation.quantity}
-    / span #{installation.running_time}
-    
-    
+        td.total_wattage = installation.total_wattage
+        td.consumption_per_day = installation.total_consumption_per_day
+        td.consumption_per_month = installation.total_consumption_per_month
+  
   div[class="installation-logs logs-#{installation.id}"]
     / = render installation.installations

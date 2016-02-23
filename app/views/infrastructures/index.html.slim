@@ -17,4 +17,14 @@ ul.tabs
     = hidden_field_tag(:infrastructure_id, "#{@infras.empty? ? 0 : @infras.first.id}")
 
 .fittingpane
+  table
+    tr
+      td.icon &#9417;
+      td.typo = "Type"
+      td.wattage = "Wattage"
+      td.quantity = "Quantity"
+      td.running_time = "Hours of use per day"
+      td.total_wattage = "Total Wattage"
+      td.total_elec_consumption = "Energy consumed per day"
+      td.consumption_per_month = "Energy consumed per month"
   = render @infra.installations
