@@ -2,6 +2,7 @@ class InfrastructuresController < ApplicationController
   def index
     @infras = Infrastructure.all
     @infra = Infrastructure.includes(installations: :fitting).first
+    @fittings = Fitting.all
   end
 
   def show

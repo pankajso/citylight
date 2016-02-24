@@ -11,10 +11,16 @@ ul.tabs
 
   = link_to 'delete infra', infrastructures_path(id: @infra.id, format: 'js'), { class: 'infra-delete', remote: true, method: :delete }
 
-.fitting-create
-  = form_tag('/fittings', method: :post, remote: true) do
-    = text_field_tag(:name, nil, placeholder: 'Add fitting')
+.installation-create
+  = form_tag('/installations', method: :post, remote: true) do
+    = label_tag "Type : "
+    = select_tag "typo", options_from_collection_for_select(@fittings, "id", "typo", "wattage"), include_blank: false
+    = label_tag "Quantity : "
+    = select_tag 'quantity', options_for_select(("1".."100").to_a, 10)
+    = label_tag "Usage hours per day : "
+    = select_tag "running_time", options_for_select(("1".."24").to_a, "8")
     = hidden_field_tag(:infrastructure_id, "#{@infras.empty? ? 0 : @infras.first.id}")
+    = submit_tag "Add fittings", class: "form_submit"
 
 .fittingpane
   table
