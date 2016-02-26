@@ -13,8 +13,17 @@
  *=require jquery-ui
  *= require_tree .
  *= require_self
-
+@import 'bootstrap-sprockets'
+@import 'bootstrap'
 @import 'colors'
 @import 'infrastructures'
 @import 'fittings'
 @import 'installations'
+
+body
+  padding-top: 70px
+
+button, input, optgroup, select, textarea
+  color: inherit
+  font: inherit
+  margin: 4px
