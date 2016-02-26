@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    title
+      | Citylights
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+    nav
+      .navbar.navbar-inverse.navbar-fixed-top
+        .container-fluid
+          .navbar-header
+            button.btn.btn-navbar[type="button" data-toggle="collapse" data-target=".nav-collapse" aria-expanded="false" aria-controls="navbar"]
+              span.sr-only
+                | Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand[href="/"]
+              | CityLight
+            .nav-collapse.collapse
+              ul.nav.navbar-nav.navbar-right
+                li
+                  a[href="/"]
+                    | Home
+                li
+                  a[href="/"]
+                    | About
+                li
+                  a[href="/"]
+                    | Contact
+              form.navbar-search.pull-right
+                input.search-query[type="text" placeholder="Search"]
+    .container
+      .row
+        = yield

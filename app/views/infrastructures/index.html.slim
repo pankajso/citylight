@@ -1,36 +1,50 @@
-ul.tabs
-  li
-    = form_tag('/infrastructures', method: :post, remote: true) do
-      = text_field_tag(:area, nil, placeholder: 'New Area')
-      / - binding.pry
-  - @infras.each_with_index do |infra, index|
-    li[class="#{'active' if index == 0}#{' last' if index == @infras.size-1}"]
-      = render infra 
+/ .col-md-4.col-sm-3
+/   ul.tabs
+/     li
+/       = form_tag('/infrastructures', method: :post, remote: true) do
+/         = text_field_tag(:area, nil, placeholder: 'New Area')
+/         / - binding.pry
+/     - @infras.each_with_index do |infra, index|
+/       li[class="#{'active' if index == 0}#{' last' if index == @infras.size-1}"]
+/         = render infra 
+/ 
+/     .infra-fitting = format_fittings(@infra.fittings)
+/ 
+/     = link_to 'delete infra', infrastructures_path(id: @infra.id, format: 'js'), { class: 'infra-delete', remote: true, method: :delete }
+h2.sub-header
+  | Add fittings
+.installation-createaa
+  = form_tag('/installations', method: :post, remote: true, class: "form-horizontal") do
+    .from-group
+      = label_tag "Type : "
+      = select_tag :typo, options_from_collection_for_select(@fittings, :id, :typo, :wattage), include_blank: false, class: "form-control"
+      
+    .from-group
+      = label_tag "Quantity : "
+      = select_tag :quantity, options_for_select(("1".."100").to_a, 10), class: "form-control"
+    
+    .from-group
+      = label_tag "Usage hours per day : "
+      = select_tag :running_time, options_for_select(("1".."24").to_a, "8"), class: "form-control"
+    
+    .from-group
+      = hidden_field_tag(:infrastructure_id, "#{@infras.empty? ? 0 : @infras.first.id}")
+    
+    = button_tag "Add", class: "btn btn-default btn-lg active"
 
-  .infra-fitting = format_fittings(@infra.fittings)
-
-  = link_to 'delete infra', infrastructures_path(id: @infra.id, format: 'js'), { class: 'infra-delete', remote: true, method: :delete }
-
-.installation-create
-  = form_tag('/installations', method: :post, remote: true) do
-    = label_tag "Type : "
-    = select_tag "typo", options_from_collection_for_select(@fittings, "id", "typo", "wattage"), include_blank: false
-    = label_tag "Quantity : "
-    = select_tag 'quantity', options_for_select(("1".."100").to_a, 10)
-    = label_tag "Usage hours per day : "
-    = select_tag "running_time", options_for_select(("1".."24").to_a, "8")
-    = hidden_field_tag(:infrastructure_id, "#{@infras.empty? ? 0 : @infras.first.id}")
-    = submit_tag "Add fittings", class: "form_submit"
-
-.fittingpane
-  table
-    tr
-      td.icon &#9417;
-      td.typo = "Type"
-      td.wattage = "Wattage"
-      td.quantity = "Quantity"
-      td.running_time = "Hours of use per day"
-      td.total_wattage = "Total Wattage"
-      td.total_elec_consumption = "Energy consumed per day"
-      td.consumption_per_month = "Energy consumed per month"
-  = render @infra.installations
+h2.sub-header
+  | Current installations
+table.table.table-bordered.table-hover.table-condensed
+  thead
+    tr.bg-primary
+      th #
+      th Type
+      th Wattage
+      th Quantity
+      th Hours of use per day
+      th Total Wattage
+      th Energy consumed per day
+      th Energy consumed per month
+      th.text-danger Delete
+      th.text-warning Edit
+    = render @infra.installations

@@ -1,0 +1,72 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    title
+      | Citylights
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .navbar-inner
+        container-fluid
+          button.btn.btn-navbar[type="button" data-toggle="collapse" data-target=".nav-collapse"]
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.brand[href="#"] City Light
+          .nav-collapse.collapse
+            p.navbar-text.pull-right
+              | Logged in As
+              a.navbar-link[href='#'] 
+                | User name
+            ul.nav
+              li.active
+                a[href="/"]
+                  | Home
+              li
+                a[href="/"]
+                  | About
+              li
+                a[href="/"]
+                  | Contact
+    .container-fluid
+      .row-fluid
+        span3
+          .well.sidebar-nav
+            ul.nav.nav-list
+              li.nav-header
+                | Side Bar
+              li.active
+                | Link1
+              li 
+                | Link2
+              li 
+                | Link3
+              li.nav-header
+                | Side Bar 2
+              li.active
+                | Link1
+              li 
+                | Link2
+              li 
+                | Link3  
+        span9
+          .hero-unit
+            h1
+              | Hello 
+            p 
+              | This is a  li Lorem ipsum...  li Lorem ipsum...
+            p 
+              a.btn.btn-primary.btn-large[href="/"] 
+          .row-fluid
+            span4
+              h2  
+                | Heading
+              p Lorem ipsum...
+              p 
+                a.btn[href="/"]
+                  | view more
+                  
+                  
