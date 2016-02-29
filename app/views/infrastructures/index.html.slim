@@ -8,7 +8,7 @@
 /       li[class="#{'active' if index == 0}#{' last' if index == @infras.size-1}"]
 /         = render infra 
 / 
-/     .infra-fitting = format_fittings(@infra.fittings)
+/   / .infra-fitting = format_fittings(@infra.fittings)
 / 
 /     = link_to 'delete infra', infrastructures_path(id: @infra.id, format: 'js'), { class: 'infra-delete', remote: true, method: :delete }
 h2.sub-header
