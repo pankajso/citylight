@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160218121219) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "fittings", force: :cascade do |t|
     t.string   "typo",                    null: false
     t.integer  "sub_typo",   default: 0
@@ -37,7 +40,7 @@ ActiveRecord::Schema.define(version: 20160218121219) do
     t.datetime "updated_at",        null: false
   end
 
-  add_index "installations", ["fitting_id"], name: "index_installations_on_fitting_id"
-  add_index "installations", ["infrastructure_id"], name: "index_installations_on_infrastructure_id"
+  add_index "installations", ["fitting_id"], name: "index_installations_on_fitting_id", using: :btree
+  add_index "installations", ["infrastructure_id"], name: "index_installations_on_infrastructure_id", using: :btree
 
 end
