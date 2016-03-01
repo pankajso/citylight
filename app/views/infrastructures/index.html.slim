@@ -34,17 +34,21 @@ h2.sub-header
 
 h2.sub-header
   | Current installations
-table.table.table-bordered.table-hover.table-condensed.rtxt
-  thead
-    tr.bg-primary
-      th #
-      th Type
-      th Wattage
-      th Quantity
-      th Hours of use per day
-      th Total Wattage
-      th Energy consumed per day
-      th Energy consumed per month
-      th.text-danger Delete
-      th.text-warning Edit
-    = render @infra.installations
+- if @infra.present?
+  table.table.table-bordered.table-hover.table-condensed.rtxt
+    thead
+      tr.bg-primary
+        th #
+        th Type
+        th Wattage
+        th Quantity
+        th Hours of use per day
+        th Total Wattage
+        th Energy consumed per day
+        th Energy consumed per month
+        th.text-danger Delete
+        th.text-warning Edit
+      = render @infra.installations
+- else
+  h3.lead.sub-header
+    | Please Add Infrastructure
