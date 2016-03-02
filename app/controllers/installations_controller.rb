@@ -3,6 +3,7 @@ class InstallationsController < ApplicationController
   end
 
   def create
-    @inst = Infrastructure.find(params[:infrastructure_id]).installations.create(name: params[:name])
+    @inst = Infrastructure.find(params[:infrastructure_id]).installations.create(fitting_id: params[:typo], quantity: params[:quantity], running_time: params[:running_time] )
+    # @installations = Infrastructure.find(params[:infrastructure_id]).installations
   end
 end
