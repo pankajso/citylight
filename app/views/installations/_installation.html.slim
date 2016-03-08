@@ -1,4 +1,4 @@
-tbody.tbl
+tbody.tbl[class="tbl-#{installation.fitting.id}"]
   tr.text-center
   - if installation.present?
     td.icon &#9417;
@@ -11,25 +11,3 @@ tbody.tbl
     td.consumption_per_month = installation.total_consumption_per_month
     td.delete = link_to 'X', installation, { class: 'installation-action action-delete', remote: true, method: :delete }
     td.edit = link_to 'edit', installation, { class: 'installation-action action-edit', remote: true, method: :edit } 
-/ div[class="installation installation-#{installation.id}"]
-/ 
-/   - if installation.present?
-/     = link_to 'X', installation, { class: 'installation-action action-delete', remote: true, method: :delete }
-/     = ""
-/     = link_to 'edit', installation, { class: 'installation-action action-edit', remote: true, method: :edit }
-/ 
-/   .installation-title
-/     table
-/       tr
-/       - if installation.present?
-/         td.icon &#9417;
-/         td.typo = installation.fitting.typo
-/         td.wattage = installation.fitting.wattage
-/         td.quantity = installation.quantity
-/         td.running_time = installation.running_time
-/         td.total_wattage = installation.total_wattage
-/         td.consumption_per_day = installation.total_consumption_per_day
-/         td.consumption_per_month = installation.total_consumption_per_month
-  
-  div[class="installation-logs logs-#{installation.id}"]
-    / = render installation.installations
