@@ -12,4 +12,9 @@ class InstallationsController < ApplicationController
       @inst = Infrastructure.find(params[:infrastructure_id]).installations.create(fitting_id: params[:typo], quantity: params[:quantity], running_time: params[:running_time] )
     end
   end
+
+  def destroy
+    @inst = Installation.find(params[:id])
+    @inst.destroy
+  end
 end
